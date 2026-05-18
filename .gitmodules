@@ -1,0 +1,3 @@
+[submodule "rails_quest"]
+	path = rails_quest
+	url = https://github.com/a-olkhovai/rails_quest.git
