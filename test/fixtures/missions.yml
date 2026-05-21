@@ -1,13 +1,50 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+ember_trace:
+  title: Ember Trace
+  agent: viper
+  status: active
 
-one:
-  title: MyString
-  description: MyString
-  status: MyString
-  agent: one
+frozen_cipher:
+  title: Frozen Cipher
+  agent: nova
+  status: active
 
-two:
-  title: MyString2
-  description: MyString2
-  status: MyString2
-  agent: two
+ghost_signal:
+  title: Ghost Signal
+  agent: echo
+  status: active
+
+glass_horizon:
+  title: Glass Horizon
+  agent: viper
+  status: active
+
+harbor_shield:
+  title: Harbor Shield
+  agent: atlas
+  status: active
+
+iron_veil:
+  title: Iron Veil
+  agent: echo
+  status: active
+
+midnight_relay:
+  title: Midnight Relay
+  agent: atlas
+  status: active
+
+sapphire_run:
+  title: Sapphire Run
+  agent: echo
+  status: active
+
+silent_echo:
+  title: Silent Echo
+  agent: atlas
+  status: active
+
+solar_tide:
+  title: Solar Tide
+  agent: echo
+  status: active

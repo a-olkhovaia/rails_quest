@@ -1,0 +1,41 @@
+# test/fixtures/agent_skills.yml
+
+atlas_crypto:
+  agent: atlas
+  skill: cryptography
+
+atlas_recon:
+  agent: atlas
+  skill: recon
+
+echo_field_medicine:
+  agent: echo
+  skill: field_medicine
+
+echo_infiltration:
+  agent: echo
+  skill: infiltration
+
+echo_recon:
+  agent: echo
+  skill: recon
+
+nova_crypto:
+  agent: nova
+  skill: cryptography
+
+nova_negotiation:
+  agent: nova
+  skill: negotiation
+
+viper_infiltration:
+  agent: viper
+  skill: infiltration
+
+viper_negotiation:
+  agent: viper
+  skill: negotiation
+
+viper_recon:
+  agent: viper
+  skill: recon

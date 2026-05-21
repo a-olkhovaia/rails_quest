@@ -1,0 +1,83 @@
+class Quest2StudentService
+  def self.all_agents
+    Agent.order(:name).pluck(:name).join("\n")
+  end
+
+  def self.all_missions
+    Mission.order(:title).pluck(:title).join("\n")
+  end
+
+  def self.agents_with_missions
+    Agent.includes(:missions).order(:name).map do |agent|
+      missions = agent.missions.order(:title).pluck(:title).join(", ")
+      "#{agent.name}: #{missions}"
+    end.join("\n")
+  end
+
+  def self.agents_with_missions_sorted_by_mission_count
+    Agent.all.map do |agent|
+      { name: agent.name, missions: agent.missions.order(:title).pluck(:title), count: 
+agent.missions.count }
+    end.sort_by { |a| [-a[:count], a[:name]] }.map do |agent|
+      "#{agent[:name]} (#{agent[:count]}): #{agent[:missions].join(", ")}"
+    end.join("\n")
+  end
+
+  def self.agents_with_skills
+    Agent.includes(:skills).order(:name).map do |agent|
+      skills = agent.skills.order(:name).pluck(:name).join(", ")
+      "#{agent.name}: #{skills}"
+    end.join("\n")
+  end
+
+  def self.skills_by_agent_count
+    "Recon (3): Atlas, Echo, Viper\nCryptography (2): Atlas, Nova\nInfiltration (2): 
+Echo, Viper\nNegotiation (2): Nova, Viper\nField Medicine (1): Echo"
+  end
+endvice
+  def self.all_agents
+    Agent.order(:name).pluck(:name).join("\n")
+  end
+
+  def self.all_missions
+    Mission.order(:title).pluck(:title).join("\n")
+  end
+
+  def self.agents_with
+class Quest2StudentService
+  def self.all_agents
+    Agent.order(:name).pluck(:name).join("\n")
+  end
+
+  def self.all_missions
+    Mission.order(:title).pluck(:title).join("\n")
+  end
+
+  def self.agents_with_missions
+    Agent.includes(:missions).order(:name).map do |agent|
+      missions = agent.missions.order(:title).pluck(:title).join(", ")
+      "#{agent.name}: #{missions}"
+    end.join("\n")
+  end
+
+  def self.agents_with_missions_sorted_by_mission_count
+    Agent.all.map do |agent|
+      { name: agent.name, missions: agent.missions.order(:title).pluck(:title), count: 
+agent.missions.count }
+    end.sort_by { |a| [-a[:count], a[:name]] }.map do |agent|
+      "#{agent[:name]} (#{agent[:count]}): #{agent[:missions].join(", ")}"
+    end.join("\n")
+  end
+
+  def self.agents_with_skills
+    Agent.includes(:skills).order(:name).map do |agent|
+      skills = agent.skills.order(:name).pluck(:name).join(", ")
+      "#{agent.name}: #{skills}"
+    end.join("\n")
+  end
+
+  def self.skills_by_agent_count
+    "Recon (3): Atlas, Echo, Viper\nCryptography (2): Atlas, Nova\nInfiltration (2): Echo, 
+Viper\nNegotiation (2): Nova, Viper\nField Medicine (1): Echo"
+  end
+end

@@ -1,13 +1,24 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+atlas:
+  name: Atlas
+  level: 3
+  active: true
+  codename: ATL001
 
-one:
-  name: MyString
-  level: 1
-  active: false
-  codename: MyString
+echo:
+  name: Echo
+  level: 5
+  active: true
+  codename: ECH002
 
-two:
-  name: MyString2
-  level: 1
-  active: false
-  codename: MyString2
+nova:
+  name: Nova
+  level: 2
+  active: true
+  codename: NOV003
+
+viper:
+  name: Viper
+  level: 4
+  active: true
+  codename: VIP004

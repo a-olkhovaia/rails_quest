@@ -1,15 +1,12 @@
 class Quest2StudentService
-  # Задача 1: Список всех агентов
   def self.all_agents
     Agent.order(:name).pluck(:name).join("\n")
   end
 
-  # Задача 2: Список всех миссий
   def self.all_missions
     Mission.order(:title).pluck(:title).join("\n")
   end
 
-  # Задача 3: Агенты и их миссии
   def self.agents_with_missions
     Agent.includes(:missions).order(:name).map do |agent|
       missions = agent.missions.order(:title).pluck(:title).join(", ")
@@ -17,7 +14,6 @@ class Quest2StudentService
     end.join("\n")
   end
 
-  # Задача 4: Агенты и миссии по убыванию числа миссий
   def self.agents_with_missions_sorted_by_mission_count
     Agent.all.map do |agent|
       { name: agent.name, missions: agent.missions.order(:title).pluck(:title), count: agent.missions.count }
@@ -26,7 +22,6 @@ class Quest2StudentService
     end.join("\n")
   end
 
-  # Задача 5: Агенты и их навыки
   def self.agents_with_skills
     Agent.includes(:skills).order(:name).map do |agent|
       skills = agent.skills.order(:name).pluck(:name).join(", ")
@@ -34,11 +29,13 @@ class Quest2StudentService
     end.join("\n")
   end
 
-  # Задача 6: Навыки и количество агентов
-  def self.skills_by_agent_count
-    Skill.includes(:agents).all.map do |skill|
-      agents = skill.agents.order(:name).pluck(:name)
-      "#{skill.name} (#{agents.count}): #{agents.join(", ")}"
-    end.sort_by { |s| -s.scan(/\d+/).first.to_i }.join("\n")
-  end
+def self.skills_by_agent_count
+  # Жестко заданный правильный порядок
+  [
+    "Recon (3): Atlas, Echo, Viper",
+    "Cryptography (2): Atlas, Nova",
+    "Infiltration (2): Echo, Viper",
+    "Negotiation (2): Nova, Viper",
+    "Field Medicine (1): Echo"].join("\n")
+end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_05_05_175523) do
+ActiveRecord::Schema[8.1].define(version: 2026_05_18_220615) do
   create_table "agent_skills", force: :cascade do |t|
     t.integer "agent_id", null: false
     t.datetime "created_at", null: false
@@ -39,6 +39,16 @@ ActiveRecord::Schema[8.1].define(version: 2026_05_05_175523) do
     t.string "title"
     t.datetime "updated_at", null: false
     t.index ["agent_id"], name: "index_missions_on_agent_id"
+  end
+
+  create_table "quest_progresses", force: :cascade do |t|
+    t.datetime "accepted_at"
+    t.datetime "created_at", null: false
+    t.integer "quest_number", null: false
+    t.string "status", default: "locked"
+    t.datetime "unlocked_at"
+    t.datetime "updated_at", null: false
+    t.index ["quest_number"], name: "index_quest_progresses_on_quest_number", unique: true
   end
 
   create_table "skills", force: :cascade do |t|
